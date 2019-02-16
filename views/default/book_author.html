@@ -1,0 +1,16 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+
+    <div class="row">
+        {{for bookauth in books:}}
+            <div class="col-md-2">
+                <div style="width:9rem" class="card">
+                    <a href="{{=URL("show", args=bookauth.id)}}"><img src="{{=URL('download',args=bookauth.file)}}" alt="" class="card-img-top img-fluid" ></a> 
+                </div>
+                <p style="width:9rem" class="text-center">{{=A(bookauth.title, _href=URL("show", args=bookauth.id))}} <br> By {{=bookauth.author.name}} <br> GH¢ {{=bookauth.price}} </p> 
+            </div>
+        {{pass}} 
+    </div>
+
+</div>

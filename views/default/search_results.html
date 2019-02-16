@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <h4>Search result for {{=keyword}}</h4>
+    <div class="row">
+        {{for search_result in books:}}
+            <div class="col-md-2">
+                <div style="width:9rem" class="card">
+                    <a href="{{=URL("show", args=search_result.id)}}"><img src="{{=URL('download',args=search_result.file)}}" alt="" class="card-img-top img-fluid" ></a> 
+                </div>
+                <p style="width:9rem" class="text-center">{{=A(search_result.title, _href=URL("show", args=search_result.id))}} <br> By {{=search_result.author.name}} <br> GH¢ {{=search_result.price}} </p> 
+            </div>
+        {{pass}} 
+    </div>
+</div>
